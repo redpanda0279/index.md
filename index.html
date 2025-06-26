@@ -7,104 +7,111 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
+      margin: 0;
       font-family: 'Outfit', sans-serif;
       background-color: #f7f9fc;
-      color: #1f1f1f;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
+      color: #333;
     }
     header {
       background-color: #e6f7f7;
-      padding: 2rem;
+      padding: 3rem 2rem;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     header h1 {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #007e8a;
       margin: 0;
-      color: #00b8b8;
     }
-    .section {
-      max-width: 960px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    header p {
+      font-size: 1.2rem;
+      color: #444;
+      margin-top: 0.5rem;
     }
-    .section h2 {
-      color: #007d7d;
+    section {
+      padding: 2rem 3rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section h2 {
+      color: #007e8a;
+      font-size: 1.8rem;
       margin-bottom: 1rem;
     }
-    .section img {
+    section p {
+      line-height: 1.8;
+    }
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .image-grid img {
       width: 100%;
       border-radius: 12px;
-      margin-top: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-    .highlight {
-      font-weight: 600;
-      color: #009999;
-    }
-    .bar-chart {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      align-items: center;
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-    .bar {
-      height: 20px;
-      background: linear-gradient(to right, #4dd0e1, #00acc1);
-      border-radius: 4px;
-    }
-    footer {
-      text-align: center;
+    .chart {
+      margin-top: 2rem;
+      background-color: #ffffff;
       padding: 1rem;
-      font-size: 0.9rem;
-      color: #888;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>딥러닝 기반 백혈구 감별계수 포트폴리오</h1>
-    <p>WBC Diff Count · Deep Learning · 의료 인공지능</p>
+    <h1>딥러닝 기반 백혈구 감별계수</h1>
+    <p>Diff Count를 자동화하여 진단의 정확성과 효율성을 높이다</p>
   </header>
 
-  <section class="section">
-    <h2>기술 개요</h2>
-    <p><span class="highlight">딥러닝 기반 백혈구 감별계수</span>는 현미경으로 혈액 도말 슬라이드를 관찰하던 기존 방식을 자동화하여, AI가 백혈구를 정확하게 분류하고 수를 세는 기술입니다.</p>
-    <img src="file-HJweaLVro5uNyheoJ2Qy8c" alt="연구원 현미경 이미지" />
+  <section>
+    <h2>프로젝트 개요</h2>
+    <p>
+      본 프로젝트는 딥러닝(CNN 기반)을 활용하여 백혈구를 자동으로 분류하는 시스템을 개발하고자 합니다. 전통적으로 백혈구 감별계수는 숙련된 전문가가 현미경으로 일일이 관찰해야 했지만, 이 기술은 이를 자동화하여 진단 속도 및 정확성을 크게 향상시킵니다.
+    </p>
   </section>
 
-  <section class="section">
-    <h2>혈액 세포 이미지</h2>
-    <p>적혈구와 백혈구가 섞인 혈액 내 이미지를 딥러닝이 분석하여 종류를 구분합니다.</p>
-    <img src="file-1ez7aGJC4Z4RhC4haVSuCn" alt="혈액 세포 입체 이미지" />
+  <section>
+    <h2>사용한 데이터셋</h2>
+    <p>
+      Kaggle의 Blood Cell Images Dataset을 활용하였으며, 이 데이터셋은 Neutrophil, Lymphocyte, Monocyte, Eosinophil 등으로 구성된 이미지들로 구성되어 있습니다. 훈련/검증/테스트 데이터셋으로 나누어 사용하였습니다.
+    </p>
   </section>
 
-  <section class="section">
-    <h2>데이터셋과 결과 예시</h2>
-    <p>다양한 백혈구 데이터로 학습된 CNN 모델은 아래와 같이 세포를 자동 분류하고, 높은 정확도로 예측 결과를 시각화합니다.</p>
-    <img src="file-98EWNkXP4SHBzeWiVDaoma" alt="혈액 도말 슬라이드 이미지" />
+  <section>
+    <h2>딥러닝 모델 구조</h2>
+    <p>
+      모델은 3개의 Conv2D + MaxPooling 레이어와 Dropout이 포함된 CNN 구조로, 마지막에는 Softmax를 사용하는 다중 클래스 분류입니다. 학습률은 Adam 옵티마이저로 조절되며, 20 Epoch 기준으로 훈련하였습니다.
+    </p>
+  </section>
 
-    <div class="bar-chart">
-      <div>호중구</div><div class="bar" style="width: 92%"></div>
-      <div>림프구</div><div class="bar" style="width: 87%"></div>
-      <div>단구</div><div class="bar" style="width: 85%"></div>
-      <div>호산구</div><div class="bar" style="width: 78%"></div>
-      <div>호염기구</div><div class="bar" style="width: 70%"></div>
+  <section>
+    <h2>정확도 및 성능</h2>
+    <div class="chart">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Bar_chart_example.svg/600px-Bar_chart_example.svg.png" alt="성능 그래프" style="width:100%; border-radius:8px;" />
+    </div>
+    <p>
+      전체 테스트 정확도는 약 91%이며, 일부 세포는 높은 정밀도와 재현율을 보였습니다. 아래는 성능 분석 결과를 시각화한 그래프입니다.
+    </p>
+  </section>
+
+  <section>
+    <h2>이미지 예시</h2>
+    <div class="image-grid">
+      <img src="/mnt/data/36cd5e23-cd67-48a4-bdb6-a450623105ca.png" alt="연구원 실험 이미지">
+      <img src="/mnt/data/a7e29058-95ab-44fc-8aed-27a0fb44264c.png" alt="백혈구와 적혈구 CG">
+      <img src="/mnt/data/fd8df643-d40b-4835-b179-31f101415ae1.png" alt="백혈구 현미경 이미지">
     </div>
   </section>
 
-  <section class="section">
-    <h2>활용 및 가능성</h2>
-    <p>이 기술은 <span class="highlight">혈액암 조기 진단</span>, <span class="highlight">정기 건강검진</span>, <span class="highlight">응급실 자동 분석</span> 등 다양한 분야에서 활용될 수 있으며, 의료 자원의 효율적 사용에 기여할 수 있습니다.</p>
+  <section>
+    <h2>결론 및 기대 효과</h2>
+    <p>
+      본 기술은 혈액 질환 조기진단, 검사 자동화, 인력 부담 감소, 일관된 결과 제공 등의 장점을 지닙니다. 향후에는 소형화된 장비와 연동하여 원격 진단 분야에도 적용 가능성이 높습니다.
+    </p>
   </section>
-
-  <footer>
-    &copy; 2025 시우의 AI 실험실 | Clinical Pathology x Deep Learning
-  </footer>
 </body>
 </html>
