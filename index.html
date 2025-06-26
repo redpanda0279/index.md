@@ -1,129 +1,136 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diff Count AI 포트폴리오</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet" />
+  <title>WBC Diff Count AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: 'Outfit', sans-serif;
-      background: #f2f4f9;
-      color: #333;
     }
+
+    body {
+      background-color: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
     header {
-      background: url('https://images.unsplash.com/photo-1581091870622-2c8b832d8a94?auto=format&fit=crop&w=1650&q=80') center/cover no-repeat;
-      color: white;
-      padding: 8rem 1rem;
       text-align: center;
-      position: relative;
+      padding: 40px 20px;
     }
-    header::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0,0,0,0.55);
-      z-index: 0;
-    }
-    header h1, header p {
-      position: relative;
-      z-index: 1;
-    }
+
     header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 4.5rem;
-      letter-spacing: 1px;
-      margin-bottom: 1rem;
+      font-size: 3rem;
+      font-weight: 800;
     }
-    header p {
-      font-size: 1.5rem;
-      font-weight: 300;
-      opacity: 0.95;
-    }
-    .section {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background: white;
+
+    .hero {
+      max-width: 900px;
+      margin: 40px auto;
       border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
-    h2 {
-      color: #1e3c72;
-      font-family: 'Playfair Display', serif;
+
+    .hero img {
+      width: 100%;
+      display: block;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 60px auto;
+    }
+
+    section h2 {
       font-size: 2rem;
-      margin-bottom: 1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #222;
     }
-    .section img {
-      max-width: 100%;
+
+    section p {
+      margin-bottom: 20px;
+    }
+
+    .images {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .images img {
+      width: 100%;
+      max-width: 250px;
       border-radius: 8px;
-      margin: 1rem 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
-    ul { padding-left: 1.2rem; }
-    a {
-      color: #1e3c72;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+
     footer {
       text-align: center;
-      padding: 2rem;
-      color: #666;
+      margin-top: 80px;
       font-size: 0.9rem;
+      color: #666;
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>Diff Count AI</h1>
-    <p>딥러닝 기반 백혈구 감별계수 자동화 프로젝트</p>
+    <h1>딥러닝 기반 백혈구 감별계수 자동화</h1>
+    <p>by 시우 | Clinical Pathology x AI</p>
   </header>
 
-  <section class="section">
-    <h2>✨ 프로젝트 개요</h2>
-    <p>이 프로젝트는 혈액 도말 슬라이드 이미지로부터 백혈구를 분류하고 계수하는 작업을 딥러닝(CNN, YOLO, U-Net 등) 기반으로 자동화하는 방법을 탐색합니다.</p>
-    <img src="https://www.researchgate.net/profile/Safwan-Khan-5/publication/343925227/figure/fig1/AS:925181274947588@1598893371297/Block-diagram-of-proposed-system.png" alt="AI 분석 흐름도">
+  <div class="hero">
+    <img src="/mnt/data/36cd5e23-cd67-48a4-bdb6-a450623105ca.png" alt="Lab Microscope" />
+  </div>
+
+  <section>
+    <h2>📌 프로젝트 개요</h2>
+    <p>
+      본 프로젝트는 혈액 도말 슬라이드 이미지에서 백혈구를 감별하고 계수하는 과정을 딥러닝 모델(CNN)을 이용해 자동화하는 실험입니다. 백혈구의 주요 4종류(Neutrophil, Lymphocyte, Monocyte, Eosinophil)를 분류하여 진단 효율을 높이는 것이 목적입니다.
+    </p>
   </section>
 
-  <section class="section">
-    <h2>🌐 사용된 데이터셋</h2>
+  <section>
+    <h2>📊 데이터셋 & 성능</h2>
+    <p>
+      사용한 데이터는 Kaggle의 "Blood Cell Images Dataset"이며, TensorFlow를 활용한 모델 학습 결과 92% 이상의 정확도를 달성했습니다. 모델은 훈련/검증/테스트 셋으로 분할하여 안정적으로 성능을 평가했습니다.
+    </p>
+    <div class="images">
+      <img src="/mnt/data/a7e29058-95ab-44fc-8aed-27a0fb44264c.png" alt="WBC 3D Render" />
+      <img src="/mnt/data/fd8df643-d40b-4835-b179-31f101415ae1.png" alt="Microscope Cell Slide" />
+    </div>
+  </section>
+
+  <section>
+    <h2>🧠 사용 기술</h2>
     <ul>
-      <li><a href="https://www.kaggle.com/datasets/paultimothymooney/blood-cells" target="_blank">Blood Cell Images - Kaggle</a></li>
-      <li><a href="https://data.mendeley.com/datasets/snkd93bnjr/1" target="_blank">Mendeley WBC Dataset</a></li>
-    </ul>
-    <img src="https://i.imgur.com/Jt6zslV.png" alt="백혈구 이미지 예시">
-  </section>
-
-  <section class="section">
-    <h2>📊 모델 성능 시각화</h2>
-    <img src="https://i.imgur.com/FjlEvDc.png" alt="정확도 그래프">
-    <img src="https://i.imgur.com/KewWPCe.png" alt="Confusion Matrix">
-  </section>
-
-  <section class="section">
-    <h2>🚀 사용 기술 스택</h2>
-    <ul>
-      <li>TensorFlow (CNN 모델 구현)</li>
-      <li>image_dataset_from_directory 기반 데이터 로딩</li>
-      <li>Matplotlib, Seaborn으로 결과 시각화</li>
+      <li>Python (TensorFlow, Matplotlib, NumPy)</li>
+      <li>Convolutional Neural Network (CNN)</li>
+      <li>Image Classification & Preprocessing</li>
+      <li>Data Augmentation</li>
     </ul>
   </section>
 
-  <section class="section">
-    <h2>👨‍🎓 프로젝트 정보</h2>
-    <p><strong>이름:</strong> 시우<br>
-       <strong>전공:</strong> 동서대학교 임상병리학과<br>
-       <strong>참여 목적:</strong> 비전공자로서 AI 기반 임상병리 기술의 가능성 탐색</p>
+  <section>
+    <h2>🙋🏻 시우의 한마디</h2>
+    <p>
+      AI는 비전공자에게도 점점 가까워지고 있습니다. 이 프로젝트를 통해 실제 임상 데이터에서 AI가 어떻게 유용하게 활용될 수 있는지 직접 경험하고자 했습니다. 앞으로도 의료+딥러닝 융합 분야에 도전해보고 싶습니다!
+    </p>
   </section>
 
   <footer>
-    © 2025 Siwoo | Clinical Pathology x Deep Learning<br>
-    본 페이지는 GitHub Pages를 통해 배포되었습니다.
+    ⓒ 2025 Siwoo | Clinical Pathology & Deep Learning
   </footer>
 </body>
+
 </html>
