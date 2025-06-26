@@ -1,90 +1,129 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diff Count AI 자동화 리서치</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diff Count AI 자동화 프로젝트</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom, #f2f6fc, #e4ecf7);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #e0eafc, #cfdef3);
       color: #333;
     }
     header {
-      background-color: #004080;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
       color: white;
-      padding: 2rem;
+      padding: 3rem 1rem;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    section {
-      max-width: 900px;
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.85;
+    }
+    .container {
+      max-width: 960px;
       margin: 2rem auto;
-      padding: 1rem 2rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding: 0 1.5rem;
     }
-    h1, h2, h3 {
-      color: #004080;
+    .card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    h2 {
+      color: #2a5298;
+      margin-top: 0;
     }
     ul {
       padding-left: 1.2rem;
     }
     a {
-      color: #0077cc;
+      color: #2a5298;
       text-decoration: none;
+      font-weight: 500;
     }
     a:hover {
       text-decoration: underline;
     }
     footer {
       text-align: center;
-      padding: 1rem;
-      background-color: #f0f0f0;
+      padding: 1.5rem;
+      font-size: 0.9rem;
       color: #666;
-      margin-top: 2rem;
+      background-color: #f4f6fa;
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Diff Count AI 자동화 리서치</h1>
-    <p>딥러닝 기반 백혈구 감별계수 자동화 기술 정리</p>
+    <h1>Diff Count AI 자동화 프로젝트</h1>
+    <p>딥러닝 기반 백혈구 감별계수 기술 리서치</p>
   </header>
-  <section>
-    <h2>✨ 프로젝트 개요</h2>
-    <p>이 프로젝트는 백혈구 감별계수(Diff Count)를 딥러닝으로 자동화할 수 있는 가능성을 탐구합니다. 반복적이고 시간 소모적인 수작업을 AI 기반 분석으로 대체하여, 검사 효율성과 정확도를 높이는 데 목적이 있습니다.</p>
 
-    <h2>⚖️ 핵심 기술 요약</h2>
-    <ul>
-      <li>CNN 기반 이미지 분류</li>
-      <li>YOLO / Faster R-CNN 객체 탐지</li>
-      <li>U-Net 기반 이미지 분할</li>
-    </ul>
+  <div class="container">
+    <div class="card">
+      <h2>✨ 프로젝트 개요</h2>
+      <p>본 프로젝트는 임상병리학의 핵심 작업 중 하나인 백혈구 감별계수(Diff Count)를 딥러닝 기반으로 자동화하기 위한 기술을 탐구하고 정리한 리서치입니다.</p>
+    </div>
 
-    <h2>🔍 데이터셋</h2>
-    <ul>
-      <li><a href="https://www.kaggle.com/datasets/paultimothymooney/blood-cells" target="_blank">Blood Cell Images (Kaggle)</a></li>
-      <li><a href="https://data.mendeley.com/datasets/snkd93bnjr/1" target="_blank">Mendeley Blood Cell Dataset</a></li>
-      <li><a href="https://github.com/Chula-PIC-Lab/Chula-RBC-12-Dataset" target="_blank">Chula-RBC-12 Dataset</a></li>
-    </ul>
+    <div class="card">
+      <h2>⚖️ 사용 기술</h2>
+      <ul>
+        <li>CNN 기반 이미지 분류</li>
+        <li>YOLO / Faster R-CNN 객체 탐지</li>
+        <li>U-Net 기반 세포 분할</li>
+      </ul>
+    </div>
 
-    <h2>📄 관련 논문</h2>
-    <ul>
-      <li>"Deep Learning for Classification of White Blood Cells" (2018)</li>
-      <li>"Automatic WBC Detection using YOLOv4" (2022)</li>
-      <li>"U-Net: Biomedical Image Segmentation" (2015)</li>
-    </ul>
+    <div class="card">
+      <h2>🔍 주요 데이터셋</h2>
+      <ul>
+        <li><a href="https://www.kaggle.com/datasets/paultimothymooney/blood-cells" target="_blank">Kaggle: Blood Cell Images</a></li>
+        <li><a href="https://data.mendeley.com/datasets/snkd93bnjr/1" target="_blank">Mendeley Blood Cell Dataset</a></li>
+        <li><a href="https://github.com/Chula-PIC-Lab/Chula-RBC-12-Dataset" target="_blank">Chula-RBC-12 Dataset</a></li>
+      </ul>
+    </div>
 
-    <h2>🚀 상용화 예시</h2>
-    <ul>
-      <li><strong>CellaVision</strong> - AI 기반 WBC 자동화 시스템</li>
-      <li><strong>노을 miLab BCM</strong> - 소형 현장 진단기기 (한국)</li>
-      <li><strong>Sysmex</strong> - 자동 혈액 분석 장비 (일본)</li>
-    </ul>
+    <div class="card">
+      <h2>📄 참고 논문</h2>
+      <ul>
+        <li>Deep Learning for Classification of White Blood Cells (2018)</li>
+        <li>Automatic WBC Detection using YOLOv4 (2022)</li>
+        <li>U-Net: Biomedical Image Segmentation (2015)</li>
+      </ul>
+    </div>
 
-    <h2>🚪 GitHub 저장소</h2>
-    <p><a href="https://g
+    <div class="card">
+      <h2>🚀 상용화 기술 사례</h2>
+      <ul>
+        <li><strong>CellaVision</strong> – 글로벌 WBC 자동화 분석 시스템</li>
+        <li><strong>노을 miLab BCM</strong> – 한국의 소형 현장 진단 AI 플랫폼</li>
+        <li><strong>Sysmex</strong> – 디지털 혈액 분석기술 리더</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>🚪 GitHub 링크</h2>
+      <p><a href="https://github.com/your-username/diff-count-ai" target="_blank">프로젝트 GitHub 보기</a></p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 시우 | Clinical Pathology & AI Research
+  </footer>
+</body>
+</html>
+
