@@ -1,104 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WBC Diff Count AI Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Outfit', sans-serif;
-      background-color: #f7fcfc;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(to right, #89f7fe, #66a6ff);
-      color: white;
-      padding: 3rem 1.5rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    section {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 1rem 2rem;
-      background: white;
-      border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    section h2 {
-      color: #157b92;
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
-
-    section p {
-      margin-bottom: 1rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #888;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 기반 백혈구 감별계수(DIFF COUNT) 자동화 기술 포트폴리오</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins (for headings), Manrope (for body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 커스텀 폰트 및 스타일 적용 */
+        body {
+            font-family: 'Manrope', sans-serif;
+            letter-spacing: -0.01em; /* 자간 미세 조정 */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* 헤더 그라데이션 텍스트 */
+        .gradient-text {
+            background: linear-gradient(45deg, #14b8a6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* 스크롤 시 나타나는 애니메이션 */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(2rem);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
+<body class="bg-slate-50 text-slate-700 antialiased">
 
-<body>
-  <header>
-    <h1>백혈구 감별계수 자동화<br>AI 기반 프로젝트 포트폴리오</h1>
-    <p>딥러닝 기술을 활용한 WBC 이미지 분류 및 성능 평가</p>
-  </header>
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
 
-  <section>
-    <h2>1. 프로젝트 개요</h2>
-    <p>본 프로젝트는 백혈구 감별계수(Differential Count)를 딥러닝 기반으로 자동화하는 것을 목표로 합니다. 인공지능을 활용해 혈액 도말 슬라이드 이미지를 분석하고, 백혈구의 종류를 정확히 분류합니다.</p>
-  </section>
+        <!-- Header -->
+        <header class="text-center mb-20 md:mb-28">
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight gradient-text">
+                AI, 혈액 분석을 재정의하다
+            </h1>
+            <p class="mt-6 text-lg text-slate-500 max-w-3xl mx-auto leading-relaxed">
+                딥러닝 기반 백혈구 감별계수(DIFF COUNT) 자동화 기술로 전례 없는 정확도와 효율성을 경험하세요.<br>최신 기술 동향부터 상용화 사례까지, 모든 것을 담았습니다.
+            </p>
+            <div class="mt-10 flex justify-center gap-4">
+                <a href="#main-content" class="bg-teal-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg shadow-teal-500/20 hover:bg-teal-600 transition-all duration-300 transform hover:scale-105">
+                    더 알아보기
+                </a>
+                <a href="#" class="bg-white text-teal-600 font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-slate-200">
+                    기술 설명서 보기
+                </a>
+            </div>
+        </header>
 
-  <section>
-    <h2>2. 기술적 배경</h2>
-    <p>기존의 감별계수는 수작업으로 진행되어 많은 시간과 숙련도를 요구합니다. 본 연구는 CNN 기반의 이미지 분류 모델을 통해 이 과정을 자동화하고, 정확성을 향상시키는 방안을 제시합니다.</p>
-  </section>
+        <!-- Main Content Grid -->
+        <main id="main-content" class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
 
-  <section>
-    <h2>3. 데이터셋 설명</h2>
-    <p>Kaggle의 Blood Cell Images 데이터셋을 활용하여 총 12,000여 장의 훈련 이미지와 3,000장의 테스트 이미지를 사용하였습니다. 클래스는 호중구, 호산구, 림프구, 단구로 구성되어 있습니다.</p>
-  </section>
+            <!-- Card 1: Technology Overview -->
+            <div class="fade-in-up group relative h-[28rem] overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-teal-600/10 transition-shadow duration-400 border border-slate-100">
+                <img src="https://images.unsplash.com/photo-1579165466949-3180a3d056d5?q=80&w=1932&auto=format&fit=crop" 
+                     alt="혈액 세포 현미경 이미지" 
+                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <div class="relative h-full p-8 flex flex-col justify-end">
+                    <h3 class="text-3xl font-bold text-white mb-2 [text-shadow:_0_1px_3px_rgb(0_0_0_/_0.4)]">01. 기술 개요</h3>
+                    <p class="text-slate-200 leading-relaxed max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+                        디지털 혈액 이미지에서 AI가 백혈구 종류를 자동으로 식별 및 분류하는 기술입니다. 시간 소모, 인적 오류, 비일관성 등 기존 수동 분석의 한계를 극복합니다.
+                    </p>
+                </div>
+            </div>
 
-  <section>
-    <h2>4. 모델 구조</h2>
-    <p>3층 CNN 아키텍처를 기반으로 하며, 각 층은 Conv2D, MaxPooling, Dropout 레이어로 구성되어 있습니다. 출력층은 Softmax를 사용하여 4가지 백혈구 유형을 분류합니다.</p>
-  </section>
+            <!-- Card 2: Open Source & GitHub -->
+            <div class="fade-in-up group relative h-[28rem] overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-teal-600/10 transition-shadow duration-400 border border-slate-100">
+                 <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1770&auto=format&fit=crop"
+                      alt="컴퓨터 화면에 보이는 HTML 코드 이미지"
+                      class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                 <div class="relative h-full p-8 flex flex-col justify-end">
+                    <h3 class="text-3xl font-bold text-white mb-2 [text-shadow:_0_1px_3px_rgb(0_0_0_/_0.4)]">02. 오픈소스 및 GitHub</h3>
+                    <p class="text-slate-200 leading-relaxed max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+                        TensorFlow, PyTorch 등 다양한 오픈소스를 활용하여 기술 개발의 진입 장벽을 낮춥니다. U-Net, Mask R-CNN 등의 아키텍처가 세포 분할 및 탐지에 사용됩니다.
+                    </p>
+                </div>
+            </div>
 
-  <section>
-    <h2>5. 학습 및 성능 평가</h2>
-    <p>학습 정확도는 97%, 검증 정확도는 93%에 도달하였습니다. 평가 지표로는 정확도, 정밀도, 재현율, F1-score, Confusion Matrix를 활용하였으며, 실사용 가능한 수준의 신뢰도를 확보하였습니다.</p>
-  </section>
+            <!-- Card 3: Public Datasets -->
+            <div class="fade-in-up group relative h-[28rem] overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-teal-600/10 transition-shadow duration-400 border border-slate-100">
+                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1770&auto=format&fit=crop" 
+                      alt="데이터를 나타내는 다양한 그래프와 차트 이미지"
+                      class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <div class="relative h-full p-8 flex flex-col justify-end">
+                    <h3 class="text-3xl font-bold text-white mb-2 [text-shadow:_0_1px_3px_rgb(0_0_0_/_0.4)]">03. 공개 데이터셋</h3>
+                    <p class="text-slate-200 leading-relaxed max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+                        고성능 AI 모델 훈련을 위한 양질의 공개 데이터셋이 존재합니다. Kaggle Blood Cell Images, BCCD Dataset 등이 대표적이며 연구 개발에 활발히 사용됩니다.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Card 4: Commercialization -->
+            <div class="fade-in-up group relative h-[28rem] overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-teal-600/10 transition-shadow duration-400 border border-slate-100">
+                <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?q=80&w=1770&auto=format&fit=crop" 
+                     alt="최첨단 장비가 있는 현대적인 실험실 이미지"
+                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <div class="relative h-full p-8 flex flex-col justify-end">
+                    <h3 class="text-3xl font-bold text-white mb-2 [text-shadow:_0_1px_3px_rgb(0_0_0_/_0.4)]">04. 상용화 사례</h3>
+                    <p class="text-slate-200 leading-relaxed max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+                        이미 다수의 논문을 통해 우수성이 입증되었으며, CellaVision(글로벌), 노을(Noul) 등 국내외 기업들이 실제 임상 현장에 상용화 솔루션을 제공하고 있습니다.
+                    </p>
+                </div>
+            </div>
 
-  <section>
-    <h2>6. 결과 및 결론</h2>
-    <p>본 프로젝트는 백혈구 감별계수의 자동화를 통해 임상병리사의 업무 효율성을 높이고, 오진률을 줄일 수 있는 가능성을 제시하였습니다. 향후에는 비정형 세포 감별 및 진단 정확도 향상을 위한 추가 연구가 필요합니다.</p>
-  </section>
+        </main>
 
-  <section>
-    <h2>7. 향후 발전 방향</h2>
-    <p>딥러닝 최신 모델(ViT, YOLOv8 등)의 도입, 비정상 세포를 포함한 데이터 확보, 현장형 장비와의 통합을 통한 임상 적용이 주요 방향입니다.</p>
-  </section>
+        <!-- Footer -->
+        <footer class="text-center mt-28 pt-12 border-t border-slate-200">
+            <div class="flex justify-center items-center gap-6 mb-6">
+                 <a href="#" class="text-slate-400 hover:text-teal-500 transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12.013c0 4.418 2.865 8.166 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.577.688.482A10.001 10.001 0 0022 12.013C22 6.477 17.523 2 12 2z" clip-rule="evenodd"></path></svg>
+                 </a>
+                 <a href="#" class="text-slate-400 hover:text-teal-500 transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.999 0C5.373 0 0 5.373 0 12s5.373 12 11.999 12C18.626 24 24 18.626 24 12S18.626 0 11.999 0zM7.07 18.27c.23.23.54.36.88.36h.02c.34 0 .65-.13.88-.36l.03-.03L12 15.22l3.12 3.12.03.03c.24.24.55.36.88.36h.02c.34 0 .65-.13.88-.36.49-.49.49-1.28 0-1.77L13.78 12l3.12-3.12c.49-.49.49-1.28 0-1.77-.49-.49-1.28-.49-1.77 0l-.03.03L12 8.78 8.88 5.66l-.03-.03c-.49-.49-1.28-.49-1.77 0-.49.49-.49 1.28 0 1.77L10.22 12l-3.12 3.12c-.49.49-.49 1.28 0 1.77z"></path></svg>
+                 </a>
+            </div>
+            <p class="text-sm text-slate-500">Created by <span class="font-semibold text-teal-600">Gemini</span>. © 2025 AI-Powered Medical Diagnostics.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // 스크롤 시 섹션이 나타나는 효과를 위한 스크립트
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
 
-  <footer>
-    <p>&copy; 2025 시우의 AI 포트폴리오</p>
-  </footer>
+        document.querySelectorAll('.fade-in-up').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
-
 </html>
